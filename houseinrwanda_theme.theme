@@ -49,12 +49,6 @@ function houseinrwanda_theme_preprocess_node(&$variables)
   $node = $variables['node'];
   if ($node instanceof NodeInterface and $node->bundle() === 'advert') {
     $themingService = Drupal::service('rir_interface.theming_service');
-    $localityService = Drupal::service('rir_interface.locality_service');
-    $localityId = $node->get('field_advert_locality')->entity->id();
-    $locality = $localityService->getLocality($localityId);
-    $variables['content']['sector'] = $locality[Constants::SECTOR] ?? '';
-    $variables['content']['district'] = $locality[Constants::DISTRICT] ?? '';
-    $variables['content']['province'] = $locality[Constants::PROVINCE] ?? '';
     if (boolval($variables['teaser']) === true) {
       $variables['content']['property_type_pill'] = ['#markup' => $themingService->getPropertyTypePill($node)];
       $variables['content']['price_pill'] = ['#markup' => $themingService->getPropertyPricePill($node)];

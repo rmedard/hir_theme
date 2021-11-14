@@ -68,7 +68,6 @@
   'clearfix',
 ] %}
 {% set image_uri = attribute(content.field_advert_picture.0, '#markup') %}
-{% set district = attribute(content.field_advert_district.0, '#title') %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('node__content', 'clearfix', 'm-0') }}>
     <div class="d-flex">
@@ -85,7 +84,7 @@
           <small class="text-muted">Ref: {{ content.field_advert_reference|field_value }}</small>
         </div>
         <div>
-          <i class="fas fa-map-marker-alt"></i> {{ content.province }}, {{ content.district }}
+          <i class="fas fa-map-marker-alt"></i> {{ node.location_province.value }}, {{ node.location_district.value }}
         </div>
         <div>{{ content.property_type_pill }} <span
             class="badge bg-success">{{ content.field_advert_type|field_value }}</span> | {{ content.price_pill }}</div>

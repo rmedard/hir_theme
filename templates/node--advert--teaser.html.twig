@@ -75,7 +75,6 @@
 {% set image_uri = attribute(content.field_advert_picture.0, '#markup') %}
 {% set publishedOn = attribute(content.published_at.0, '#markup')|replace({'-' : ''}) %}
 {% set expiresOn = attribute(content.field_advert_expirydate.0, '#markup') %}
-{% set district = attribute(content.field_advert_district[0], '#title') %}
 {% set postingPlan = attribute(content.field_advert_posting_plan.0, '#markup') %}
 {% set publisher = attribute(content.field_advert_advertiser.0, '#options').entity %}
 <article{{ attributes.addClass(classes) }}>
@@ -94,7 +93,7 @@
           </div>
           <div class="advert-body flex-grow-1 d-flex flex-column justify-content-between">
             <div class="advert-body-main">
-              <i class="fa fa-map-marker-alt"></i> {{ content.province }}, {{ content.district }}, {{ content.sector }}
+              <i class="fa fa-map-marker-alt"></i> {{ node.location_province.value }}, {{ node.location_district.value }}, {{ node.location_sector.value }}
               <p class="mb-0">Published on {{ date(publishedOn)|date('d-m-Y') }} | Expires on {{ date(expiresOn)|date('d-m-Y') }} {% if publisher %}| Published by {{ drupal_link(publisher.title.value, 'node/' ~ publisher.id) }}</p>{% endif %}
               <p class="mb-0">
                 <strong>Advert: </strong>{{ content.field_advert_type|field_value }},
