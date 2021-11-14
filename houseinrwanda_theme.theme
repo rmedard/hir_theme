@@ -240,7 +240,6 @@ function houseinrwanda_theme_preprocess_flexslider(&$variables)
   $variables['attributes']['class'][] = 'bg-transparent';
 }
 
-
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -327,8 +326,10 @@ function houseinrwanda_theme_preprocess_form_element(&$variables)
     $variables['attributes']['class'][] = 'mb-3';
   }
 
-  if ($variables['element']['#attributes']['data-drupal-selector'] === 'edit-vote') {
-    $variables['attributes']['class'] = [];
+  if (array_key_exists('#attributes', $variables['element'])) {
+    if ($variables['element']['#attributes']['data-drupal-selector'] === 'edit-vote') {
+      $variables['attributes']['class'] = [];
+    }
   }
 }
 
