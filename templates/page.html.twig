@@ -74,8 +74,10 @@
         {% if page.secondary_menu or page.top_header or page.top_header_form %}
           <nav{{ navbar_top_attributes.addClass('bg-white') }}>
             <div class="container">
-              {{ page.top_header }}
-              {{ page.top_header_form }}
+              <div class="d-flex w-100">
+                <div class="logo-region">{{ page.top_header }}</div>
+                <div class="header-right-region">{{ page.top_header_form }}</div>
+              </div>
             </div>
           </nav>
         {% endif %}

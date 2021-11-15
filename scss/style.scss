@@ -73,13 +73,11 @@ a.navbar-brand > img {
 }
 
 nav#navbar-top {
-  div.container {
-    a.navbar-brand {
-      flex: 1;
-    }
-    section {
-      flex: 5;
-    }
+  div.logo-region {
+    flex: 1;
+  }
+  div.header-right-region {
+    flex: 5;
   }
 }
 
