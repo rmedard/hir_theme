@@ -77,9 +77,19 @@ nav#navbar-top {
     flex: 1;
   }
   div.header-right-region {
-    flex: 5;
+    flex: 3;
+    max-height: 50px;
   }
 }
+
+@media (min-width: 576px) {
+  nav#navbar-top {
+    div.header-right-region {
+      max-height: 100%;
+    }
+  }
+}
+
 
 .flex-direction-nav a:before{
   line-height: 1;
