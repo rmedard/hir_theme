@@ -37,7 +37,7 @@ We call a macro which calls itself to render the full tree.
       {% endif %}
       {% for item in items %}
         {% if menu_name == 'adverts-secondary-menu' %}
-          {% set current_count = menu_adverts_tabs_values[loop.index] %}
+          {% set current_count = menu_adverts_tabs_values[loop.index]|number_format %}
         {% endif %}
 
         {% set item_classes = [item.is_expanded? 'expanded',
@@ -49,11 +49,12 @@ We call a macro which calls itself to render the full tree.
           item.in_active_trail ? 'text-white' : 'text-primary'
         ] %}
         {% set custom_link_attribute = create_attribute() %}
+
         {% if menu_level == 0 and item.is_expanded %}
         <li{{ item.attributes.addClass(item_classes) }}>
           <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }} <span
               class="caret"></span></a>
-        {% else %}
+        {% elseif current_count > 0 %}
           <li{{ item.attributes.addClass(item_classes) }}>
           <a{{ custom_link_attribute.addClass(link_classes) }} href="{{ item.url }}">{{ item.title }}
             <span
