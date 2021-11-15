@@ -47,6 +47,8 @@
         width: '100%'
       });
 
+      $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
+
       const header = $(context).find('header.fixed-top');
       if (settings.toolbar !== undefined) {
         header.css('top', '79px');

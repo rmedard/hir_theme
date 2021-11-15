@@ -321,8 +321,11 @@ function houseinrwanda_theme_preprocess_form_element(&$variables)
   }
 
   if (array_key_exists('#attributes', $variables['element'])) {
-    if ($variables['element']['#attributes']['data-drupal-selector'] === 'edit-vote') {
-      $variables['attributes']['class'] = [];
+    $attributes = $variables['element']['#attributes'];
+    if (array_key_exists('data-drupal-selector', $attributes)) {
+      if ($attributes['data-drupal-selector'] === 'edit-vote') {
+        $variables['attributes']['class'] = [];
+      }
     }
   }
 }
