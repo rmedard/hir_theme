@@ -79,14 +79,14 @@
       <div class="flex-grow-1 ms-2">
         <div>
                 <span class="h6">
-                  <a href="{{ url }}">{{ node.title.value|slice(0, 20)|capitalize }}...</a>
+                  <a href="{{ url }}">{{ node.title.value|slice(0, 20) }}...</a>
                 </span>
           <small class="text-muted">Ref: {{ content.field_advert_reference|field_value }}</small>
         </div>
-        <div>
-          <i class="fas fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}
+        <div class="small">
+          <i class="fas fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}
         </div>
-        <div>{{ content.property_type_pill }} <span
+        <div class="small">{{ content.property_type_pill }} <span
             class="badge bg-success">{{ content.field_advert_type|field_value }}</span> | {{ content.price_pill }}</div>
       </div>
     </div>

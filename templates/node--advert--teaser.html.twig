@@ -93,7 +93,7 @@
           </div>
           <div class="advert-body flex-grow-1 d-flex flex-column justify-content-between">
             <div class="advert-body-main">
-              <i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}, {{ node.field_advert_locality_sector.value }}
+              <i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}
               <p class="mb-0">Published on {{ date(publishedOn)|date('d-m-Y') }} | Expires on {{ date(expiresOn)|date('d-m-Y') }} {% if publisher %}| Published by {{ drupal_link(publisher.title.value, 'node/' ~ publisher.id) }}</p>{% endif %}
               <p class="mb-0">
                 <strong>Advert: </strong>{{ content.field_advert_type|field_value }},
