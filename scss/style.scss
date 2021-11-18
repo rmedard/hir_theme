@@ -123,7 +123,9 @@ nav[aria-label="pagination-heading"], nav.menu--adverts-secondary-menu {
 }
 
 div.site-footer__bottom {
-  background: url("../images/city.svg") no-repeat;
+  background-image: url("../images/city.svg");
+  background-repeat: repeat-x;
+  background-position: bottom;
 }
 
 div#toolbar-administration > nav#toolbar-bar {

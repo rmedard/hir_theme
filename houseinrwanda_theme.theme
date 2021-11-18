@@ -222,6 +222,9 @@ function houseinrwanda_theme_preprocess_block(&$variables)
     $variables['attributes']['class'][] = 'p-2';
     $variables['attributes']['class'][] = 'bg-light';
   }
+  if ($variables['plugin_id'] === 'copyright_block') {
+    $variables['attributes']['class'][] = 'm-0';
+  }
 }
 
 /**
