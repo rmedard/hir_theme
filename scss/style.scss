@@ -72,26 +72,30 @@ a.navbar-brand > img {
   padding: 0;
 }
 
-nav#navbar-top {
-  div.logo-region {
-    flex: 1;
-  }
-  div.header-right-region {
-    flex: 3;
-    max-height: 50px;
+nav#navbar-main {
+  div.hir-header-navbar {
+    height: 60px;
+
+    div.logo-region {
+      flex: 1;
+    }
+
+    div.header-right-region {
+      flex: 3;
+    }
   }
 }
 
-@media (min-width: 576px) {
-  nav#navbar-top {
-    div.header-right-region {
-      max-height: 100%;
+@include media-breakpoint-up(md) {
+  nav#navbar-main {
+    div.hir-header-navbar {
+      height: auto;
     }
   }
 }
 
 
-.flex-direction-nav a:before{
+.flex-direction-nav a:before {
   line-height: 1;
 }
 
@@ -105,6 +109,7 @@ div#combined-sidebars {
   img {
     width: 100%;
   }
+
   div.block {
     margin-bottom: 1rem;
   }

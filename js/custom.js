@@ -47,13 +47,29 @@
         width: '100%'
       });
 
+      const mainNavbar = $(context).find('nav#navbar-main');
+      if (settings.toolbar !== undefined) {
+        mainNavbar.css('top', '79px');
+      }
+      $(context).find('div.grand-wrapper').css('margin-top', mainNavbar.height());
+
       $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
 
-      const header = $(context).find('header.fixed-top');
-      if (settings.toolbar !== undefined) {
-        header.css('top', '79px');
-      }
-      $(context).find('div.grand-wrapper').css('margin-top', header.height());
+      // const bodyPadding = parseInt($(context).find('body').css('padding-top').replace("px", ""));
+      // console.log('Body padding: ' + bodyPadding);
+      //
+
+      // const header = $(context).find('header#header');
+      // header.addClass('fixed-top');
+      // const bodyPadding = parseInt($('body').css('padding-top').replace("px", ""));
+      // const wrapper = $(context).find('div.grand-wrapper');
+      // wrapper.css('margin-top', header.height() + bodyPadding)
+
+      // const header = $(context).find('header.fixed-top');
+      // if (settings.toolbar !== undefined) {
+      //   header.css('top', '79px');
+      // }
+      // $(context).find('div.grand-wrapper').css('margin-top', header.height());
 
       const images = $(context).find('div#carousel');
       images.flexslider({
