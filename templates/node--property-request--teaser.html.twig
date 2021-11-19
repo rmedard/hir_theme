@@ -79,8 +79,8 @@
     </div>
     <div class="card-body py-2">
       <div class="text-nowrap overflow-hidden"><i class="fas fa-map-marker-alt"></i> {{ content.field_pr_area_city_interest|field_value }}</div>
-      <div><strong>Budget:</strong> {{ content.field_pr_maximum|field_value }} ({{ content.field_pr_currency|field_value }}) {% if content.field_pr_request_type|field_value == 'rent' %}<small>/{{ content.field_pr_payable|field_value }}</small>{% endif %}</div>
-      <div><strong>Bedrooms:</strong> {{ node.field_pr_minimum_bedrooms.value }}, <strong>Bathrooms:</strong> {{ node.field_pr_minimum_bathrooms.value }}</div>
+      <div><strong>Budget:</strong> {{ node.field_pr_maximum.value|number_format }} ({{ content.field_pr_currency|field_value }}) {% if content.field_pr_request_type|field_value == 'rent' %}<small>/{{ content.field_pr_payable|field_value }}</small>{% endif %}</div>
+      <div><strong>Bedrooms:</strong> {{ node.field_pr_minimum_bedrooms.value|number_format }}, <strong>Bathrooms:</strong> {{ node.field_pr_minimum_bathrooms.value }}</div>
     </div>
     <div class="card-footer d-flex justify-content-between border-0">
       <div class="badges">
