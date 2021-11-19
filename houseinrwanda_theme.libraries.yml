@@ -40,5 +40,7 @@ global-styling:
     - webform/webform.element.select2
     - flexslider/flexslider
     - core/jquery
+    - core/jquery.ui
+    - core/jquery.ui.effects.core
     - core/drupal
     - core/popperjs
