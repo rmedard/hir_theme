@@ -64,6 +64,8 @@
         itemWidth: settings.flexslider_thumbnail_width,
         itemMargin: 5
       });
+
+      $(context).find('ins.adsbygoogle-noablate').remove();
     }
   };
 })(jQuery, Drupal);
