@@ -71,7 +71,7 @@ nav#navbar-main {
   background-image: linear-gradient(90deg, $primary-shade, $accent-shade);
   ul.nav > li.nav-item {
     a.is-active {
-      border-bottom: solid 1px $white;
+      border-bottom: solid 2px $white;
       font-weight: 600;
     }
   }

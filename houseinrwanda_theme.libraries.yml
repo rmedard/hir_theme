@@ -39,8 +39,6 @@ global-styling:
     - webform/webform.element.telephone
     - webform/webform.element.select2
     - flexslider/flexslider
-    - core/jquery
-    - core/jquery.ui
-    - core/jquery.ui.effects.core
+    - jquery_ui_effects/core
     - core/drupal
     - core/popperjs
