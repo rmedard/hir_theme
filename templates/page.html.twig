@@ -74,7 +74,7 @@
         {% if page.secondary_menu or page.top_header or page.top_header_form %}
           <nav{{ navbar_attributes.addClass('fixed-top d-flex flex-column p-0') }}>
             <div class="hir-header-navbar container-fluid bg-white">
-              <div class="container d-flex py-2">
+              <div class="container d-flex justify-content-between py-2">
                 <div class="logo-region">{{ page.top_header }}</div>
                 <div class="header-right-region">{{ page.top_header_form }}</div>
               </div>

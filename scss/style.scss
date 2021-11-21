@@ -21,13 +21,8 @@ a {
   color: $accent-shade;
 }
 
-a.is-active {
-  background: darken($primary-shade, 5%);
-  border-radius: 5px;
-}
-
 a.navbar-brand > img {
-  max-height: 100px;
+  max-height: 90px;
 }
 
 .bg-inverse {
@@ -73,15 +68,26 @@ a.navbar-brand > img {
 }
 
 nav#navbar-main {
+  background-image: linear-gradient(90deg, $primary-shade, $accent-shade);
+  ul.nav > li.nav-item {
+    a.is-active {
+      border-bottom: solid 1px $white;
+      font-weight: 600;
+    }
+  }
   div.hir-header-navbar {
     height: 60px;
+    div.container {
+      height: inherit;
+      overflow: hidden;
+    }
 
     div.logo-region {
-      flex: 1;
+      flex: 0 0 5em;
     }
 
     div.header-right-region {
-      flex: 3;
+      flex: 0 0 15em;
     }
   }
 }
@@ -90,6 +96,13 @@ nav#navbar-main {
   nav#navbar-main {
     div.hir-header-navbar {
       height: auto;
+      div.logo-region {
+        flex: 0 0 10em;
+      }
+
+      div.header-right-region {
+        flex: 0 0 18em;
+      }
     }
   }
 }
