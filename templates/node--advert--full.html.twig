@@ -81,10 +81,16 @@
           <div class="col-md-6">
             <div><strong>{{ content.field_advert_type|field_label }}:</strong> {{ content.field_advert_type|field_value }}</div>
             <div><strong>{{ content.field_advert_price|field_label }}:</strong> {{ price|number_format }} {{ content.field_advert_currency|field_value }}</div>
+            <div><strong>{{ content.field_advert_bedrooms|field_label }}:</strong> {{ node.field_advert_bedrooms.value }}</div>
+            <div><strong>{{ 'Total floors' }}:</strong> {{ node.field_advert_total_floors.value }}</div>
+            <div><strong>{{ 'Address' }}:</strong> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}, {{ node.field_advert_locality_sector.value }}</div>
           </div>
           <div class="col-md-6">
             <div><strong>{{ content.field_advert_property_type|field_label }}:</strong> {{ content.field_advert_property_type|field_value }}</div>
             <div><strong>{{ content.field_advert_bathrooms|field_label }}:</strong> {{ content.field_advert_bathrooms|field_value }}</div>
+            <div><strong>{{ content.field_advert_size|field_label }}:</strong> {{ content.field_advert_size|field_value }}</div>
+            <div><strong>{{ content.field_advert_furnished|field_label }}:</strong> {{ content.field_advert_furnished|field_value }}</div>
+            <div><strong>{{ content.field_advert_expirydate|field_label }}:</strong> {{ content.field_advert_expirydate|field_value }}</div>
           </div>
         </div>
       </div>
