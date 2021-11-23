@@ -77,24 +77,24 @@
 {% set twitter = attribute(content.field_agent_twitter.0, '#title') %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('node__content', 'clearfix', 'card', 'bg-light', 'border-0', 'p-2', 'mb-3') }}>
-    <div class="d-flex">
+    <div class="d-flex flex-wrap justify-content-center flex-md-nowrap">
       <div class="flex-shrink-0">
         <img src="{{ logo_uri }}" alt="{{ node.title.value }}">
       </div>
-      <div class="flex-grow-1 ms-2">
+      <div class="flex-md-grow-1 ms-0 ms-md-2">
         <h4>{{ node.title.value }}</h4>
         <dl class="row">
-          <dt class="col-sm-4">{{ content.field_advertiser_type|field_label }}</dt>
-          <dd class="col-sm-8 m-0">{{ content.field_advertiser_type|field_value }}</dd>
+          <dt class="col-4-md-4">{{ content.field_advertiser_type|field_label }}</dt>
+          <dd class="col-8 col-md-8 m-0">{{ content.field_advertiser_type|field_value }}</dd>
 
-          <dt class="col-sm-4">{{ content.field_agent_rating|field_label }}</dt>
-          <dd class="col-sm-8 m-0">{{ content.field_agent_rating|field_value }}</dd>
+          <dt class="col-4 col-md-4">{{ content.field_agent_rating|field_label }}</dt>
+          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_rating|field_value }}</dd>
 
-          <dt class="col-sm-4">{{ content.field_agent_operations_area|field_label }}</dt>
-          <dd class="col-sm-8 m-0">{{ content.field_agent_operations_area|field_value }}</dd>
+          <dt class="col-4 col-md-4">{{ content.field_agent_operations_area|field_label }}</dt>
+          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_operations_area|field_value }}</dd>
 
-          <dt class="col-sm-4">{{ content.field_agent_email|field_label }}</dt>
-          <dd class="col-sm-8 m-0">{{ content.field_agent_email|field_value }}</dd>
+          <dt class="col-4 col-md-4">{{ content.field_agent_email|field_label }}</dt>
+          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_email|field_value }}</dd>
         </dl>
         <div class="d-flex justify-content-between">
           <div class="agent-website">
