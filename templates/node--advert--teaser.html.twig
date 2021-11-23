@@ -77,6 +77,7 @@
 {% set expiresOn = attribute(content.field_advert_expirydate.0, '#markup') %}
 {% set postingPlan = attribute(content.field_advert_posting_plan.0, '#markup') %}
 {% set publisher = attribute(content.field_advert_advertiser.0, '#options').entity %}
+{% set property_type = attribute(content.field_advert_property_type|field_raw, 'value') %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass(cardClasses) }}>
     <div class="row g-0">
@@ -97,9 +98,10 @@
               <p class="mb-0">Published on {{ date(publishedOn)|date('d-m-Y') }} | Expires on {{ date(expiresOn)|date('d-m-Y') }} {% if publisher %}| Published by {{ drupal_link(publisher.title.value, 'node/' ~ publisher.id) }}</p>{% endif %}
               <p class="mb-0">
                 <strong>Advert: </strong>{{ content.field_advert_type|field_value }},
-                <strong>Property: </strong>{{ content.field_advert_property_type|field_value }},
-                <strong>Bedroom: </strong>{{ content.field_advert_bedrooms|field_value }},
-                <strong>Bathrooms: </strong>{{ content.field_advert_bathrooms|field_value }}
+                <strong>Property: </strong>{{ content.field_advert_property_type|field_value }}{% if property_type != 'land' %},
+                  <strong>Bedroom: </strong>{{ content.field_advert_bedrooms|field_value }},
+                  <strong>Bathrooms: </strong>{{ content.field_advert_bathrooms|field_value }}
+                {% endif %}
               </p>
             </div>
             <div class="advert-body-bottom d-flex justify-content-between">
