@@ -107,6 +107,11 @@ nav#navbar-main {
   }
 }
 
+article.node--type-agent.node--view-mode-teaser {
+  div.card-footer {
+    background-image: linear-gradient(90deg, $primary-shade, $accent-shade);
+  }
+}
 
 .flex-direction-nav a:before {
   line-height: 1;
