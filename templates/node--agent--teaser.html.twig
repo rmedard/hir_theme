@@ -71,12 +71,18 @@
   ]
 %}
 {% set cardClasses = [
-  'node__content', 'clearfix', 'card', 'border-light'
+  'node__content', 'clearfix', 'card', 'border-success', 'p-1', 'shadow-sm'
 ] %}
 {% set image_uri = attribute(content.field_agent_logo[0], '#markup') %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass(cardClasses) }}>
     <img src="{{ image_uri }}" class="card-img-top" alt="{{ node.title.value }}">
-    <div class="card-footer border-0 text-center"><a href="{{ url }}">{{ label }}</a></div>
+    <div class="card-body text-center">
+      <h6 class="m-0"><a href="{{ url }}">{{ label }}</a></h6>
+    </div>
+    <div class="card-footer bg-success text-white border-0 p-2">
+      <div class="small text-center"><i class="fas fa-phone-alt"></i> {{ node.field_agent_phone.value }}</div>
+      <div class="small d-flex flex-nowrap overflow-hidden align-items-baseline justify-content-center"><i class="fas fa-at"></i> <span class="ps-1">{{ node.field_agent_email.value }}</span></div>
+    </div>
   </div>
 </article>
