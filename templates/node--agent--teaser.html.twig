@@ -78,7 +78,7 @@
   <div{{ content_attributes.addClass(cardClasses) }}>
     <img src="{{ image_uri }}" class="card-img-top" alt="{{ node.title.value }}">
     <div class="card-body text-center py-1">
-      <h6 class="m-0"><a href="{{ url }}">{{ label }}</a></h6>
+      <h6 class="m-0"><a href="{{ url }}" class="stretched-link">{{ label }}</a></h6>
       <div class="small"><i class="fas fa-map-marker-alt"></i> {{ node.field_agent_operations_area.value }}</div>
     </div>
     <div class="card-footer bg-success text-white border-0 p-2 rounded">
