@@ -336,16 +336,6 @@ function houseinrwanda_theme_preprocess_form_element(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_region(&$variables)
-{
-  if ($variables['region'] == 'sidebar_horizontal') {
-    $variables['attributes']['class'][] = 'g-0';
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
 function houseinrwanda_theme_preprocess_pager(&$variables)
 {
   $variables['attributes']['class'][] = 'mt-3';

@@ -55,6 +55,16 @@
 
       $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
 
+      const values = {
+        'border-radius': '5px',
+        'height': '32px',
+        'line-height': '32px',
+        'opacity': '1',
+        'width': '32px'
+      };
+      $(context).find('span.a2a_svg').css(values);
+
+
       const images = $(context).find('div#carousel');
       images.flexslider({
         animation: "slide",
