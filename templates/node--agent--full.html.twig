@@ -76,7 +76,7 @@
 {% set linkedin = attribute(content.field_agent_linkedin.0, '#title') %}
 {% set twitter = attribute(content.field_agent_twitter.0, '#title') %}
 <article{{ attributes.addClass(classes) }}>
-  <div{{ content_attributes.addClass('node__content', 'clearfix', 'card', 'bg-white', 'border-success', 'p-2', 'mb-3') }}>
+  <div{{ content_attributes.addClass('node__content', 'clearfix', 'card', 'bg-white', 'border-warning', 'p-2', 'mb-3') }}>
     <div class="d-flex flex-wrap justify-content-center flex-md-nowrap">
       <div class="flex-shrink-0">
         <img src="{{ logo_uri }}" alt="{{ node.title.value }}">
