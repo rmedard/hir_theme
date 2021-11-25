@@ -76,37 +76,37 @@
 {% set linkedin = attribute(content.field_agent_linkedin.0, '#title') %}
 {% set twitter = attribute(content.field_agent_twitter.0, '#title') %}
 <article{{ attributes.addClass(classes) }}>
-  <div{{ content_attributes.addClass('node__content', 'clearfix', 'card', 'bg-light', 'border-0', 'p-2', 'mb-3') }}>
+  <div{{ content_attributes.addClass('node__content', 'clearfix', 'card', 'bg-white', 'border-success', 'p-2', 'mb-3') }}>
     <div class="d-flex flex-wrap justify-content-center flex-md-nowrap">
       <div class="flex-shrink-0">
         <img src="{{ logo_uri }}" alt="{{ node.title.value }}">
       </div>
-      <div class="flex-md-grow-1 ms-0 ms-md-2">
-        <h4 class="text-center text-md-start">{{ node.title.value }}</h4>
-        <dl class="row">
-          <dt class="col-4 col-md-4">{{ content.field_advertiser_type|field_label }}</dt>
-          <dd class="col-8 col-md-8 m-0">{{ content.field_advertiser_type|field_value }}</dd>
+      <div class="d-flex flex-column flex-md-grow-1 ms-0 ms-md-2 justify-content-between">
+        <div class="agent-identification-details">
+          <h4 class="text-center text-md-start">{{ node.title.value }}</h4>
+          <dl class="row">
+            <dt class="col-4 col-md-4">{{ content.field_advertiser_type|field_label }}</dt>
+            <dd class="col-8 col-md-8 m-0">{{ content.field_advertiser_type|field_value }}</dd>
 
-          <dt class="col-4 col-md-4">{{ content.field_agent_rating|field_label }}</dt>
-          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_rating|field_value }}</dd>
+            <dt class="col-4 col-md-4">{{ content.field_agent_rating|field_label }}</dt>
+            <dd class="col-8 col-md-8 m-0">{{ content.field_agent_rating|field_value }}</dd>
 
-          <dt class="col-4 col-md-4">{{ content.field_agent_operations_area|field_label }}</dt>
-          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_operations_area|field_value }}</dd>
-
-          <dt class="col-4 col-md-4">{{ content.field_agent_email|field_label }}</dt>
-          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_email|field_value }}</dd>
-
-          <dt class="col-4 col-md-4">{{ content.field_agent_phone|field_label }}</dt>
-          <dd class="col-8 col-md-8 m-0">{{ content.field_agent_phone|field_value }}</dd>
-        </dl>
-        <div class="d-flex justify-content-between">
-          <div class="agent-website">
-            {% if website %}<i class="fas fa-globe"></i> <a href="{{ website }}" target="_blank">{{ website }}</a>{% endif %}
-          </div>
-          <div class="agent-social-media">
-            {% if facebook %}<a href="{{ facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>{% endif %}
-            {% if twitter %}<a href="{{ twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>{% endif %}
-            {% if linkedin %}<a href="{{ linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+            <dt class="col-4 col-md-4">{{ content.field_agent_operations_area|field_label }}</dt>
+            <dd class="col-8 col-md-8 m-0">{{ content.field_agent_operations_area|field_value }}</dd>
+          </dl>
+        </div>
+        <div class="agent-contact-details px-2 text-white rounded">
+          <div class="agent-phone"><i class="fas fa-phone-alt"></i> {{ node.field_agent_phone.value }}</div>
+          <div class="agent-email"><i class="fas fa-at"></i> {{ node.field_agent_email.value }}</div>
+          <div class="d-flex justify-content-between">
+            <div class="agent-website">
+              {% if website %}<i class="fas fa-globe"></i> <a href="{{ website }}" target="_blank" class="text-white">{{ website }}</a>{% endif %}
+            </div>
+            <div class="agent-social-media">
+              {% if facebook %}<a href="{{ facebook }}" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>{% endif %}
+              {% if twitter %}<a href="{{ twitter }}" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>{% endif %}
+              {% if linkedin %}<a href="{{ linkedin }}" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+            </div>
           </div>
         </div>
       </div>

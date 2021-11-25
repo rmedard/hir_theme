@@ -108,6 +108,10 @@ article.node--type-agent.node--view-mode-teaser {
   }
 }
 
+div.agent-contact-details {
+  background: linear-gradient(90deg, $primary-shade, $accent-shade);
+}
+
 .flex-direction-nav a:before {
   line-height: 1;
 }
