@@ -54,6 +54,7 @@
       $(context).find('div.grand-wrapper').css('margin-top', mainNavbar.height());
 
       $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
+      // $(context).find('input#edit-subscription-active').removeClass('form-control');
 
       const values = {
         'border-radius': '5px',
