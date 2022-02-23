@@ -11,7 +11,14 @@
             <td align="center" valign="top" width="600" style="width:600px;">
         <![endif]-->
         <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
-
+          {% set image_url = drupal_config('rir_interface.social_media', 'email_banner_image') %}
+          {% if image_url %}
+            <tr>
+              <td class="tg-0pky" colspan="2">
+                <img src="{{ image_url }}" class="templateImage" alt="email_banner">
+              </td>
+            </tr>
+          {% endif %}
 
           <!-- BEGIN BODY // -->
           <tr>

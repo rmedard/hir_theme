@@ -174,7 +174,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              {{ drupal_field('field_advert_location', 'node', advert.id, 'twig_display') }}
+              {{ drupal_field('field_advert_location', 'node', node.nid.value, 'twig_display') }}
             </div>
           </div>
         </div>
