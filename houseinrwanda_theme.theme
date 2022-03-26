@@ -5,14 +5,9 @@
  * Functions to support theming in the SASS Starterkit subtheme.
  */
 
-use Drupal\Component\Render\FormattableMarkup;
-use Drupal\Core\Field\FieldFilteredMarkup;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Template\AttributeString;
 use Drupal\node\NodeInterface;
-use Drupal\rir_interface\Utils\Constants;
-use Drupal\taxonomy\Entity\Term;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
 
@@ -49,6 +44,20 @@ function houseinrwanda_theme_preprocess_node(&$variables)
   $node = $variables['node'];
   if ($node instanceof NodeInterface and $node->bundle() === 'advert') {
     $themingService = Drupal::service('rir_interface.theming_service');
+    $isRent = in_array($node->get('field_advert_type')->value, ['rent', 'short_rent']);
+    if ($isRent) {
+      $payable = match ($node->get('field_advert_payment')->value) {
+        'monthly' => '/month',
+        'weekly' => '/week',
+        'daily' => '/day',
+        'nightly' => '/night',
+        'yearly' => '/year',
+        default => '',
+      };
+      $variables['content']['payable'] = ['#markup' => '<small>' . $payable . '</small>'];
+    }
+
+
     if (boolval($variables['teaser']) === true) {
       $variables['content']['property_type_pill'] = ['#markup' => $themingService->getPropertyTypePill($node)];
       $variables['content']['price_pill'] = ['#markup' => $themingService->getPropertyPricePill($node)];
@@ -140,21 +149,23 @@ function houseinrwanda_theme_preprocess_page(&$variables)
   $variables['show_sidebars'] = TRUE;
   $variables['show_searchbar'] = FALSE;
 
-  if (preg_match('(/pricing-plans)', $page_path) or preg_match('(/services)', $page_path)
-    or preg_match('(/pr-posting-plans)', $page_path)) {
+  if (str_contains($page_path, '/pricing-plans') or str_contains($page_path, '/services')
+    or str_contains($page_path, '/pr-posting-plans')) {
     $variables['show_sidebars'] = FALSE;
   }
 
   if (preg_match('(\/properties\/)', $page_path)
     or preg_match('(\/property\/)', $page_path)
-    or preg_match('(/search-adverts)', $page_path)
-    or preg_match('(/for-rent)', $page_path)
-    or preg_match('(/for-sale)', $page_path)
-    or preg_match('(/auctions)', $page_path)
+    or str_contains($page_path, '/search-adverts')
+    or str_contains($page_path, '/for-rent')
+    or str_contains($page_path, '/short-rents')
+    or str_contains($page_path, '/for-sale')
+    or str_contains($page_path, '/auctions')
     or Drupal::service('path.matcher')->isFrontPage()) {
     $variables['show_searchbar'] = TRUE;
   }
 }
+
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -162,7 +173,7 @@ function houseinrwanda_theme_preprocess_page(&$variables)
 function houseinrwanda_theme_preprocess_page_title(&$variables)
 {
   $queryString = Drupal::request()->getQueryString();
-  if (isset($queryString) && preg_match('(advert_target_pr)', $queryString)) {
+  if (isset($queryString) && str_contains($queryString, 'advert_target_pr')) {
     $variables['title'] = t('Submit a property');
   }
 
@@ -195,7 +206,7 @@ function houseinrwanda_theme_preprocess_page_title(&$variables)
   }
 
   $currentPath = Drupal::request()->getPathInfo();
-  if (preg_match('(/form/)', $currentPath) or preg_match('(/unsubscribe/)', $currentPath)) {
+  if (str_contains($currentPath, '/form/') or str_contains($currentPath, '/unsubscribe/')) {
     $variables['show_page_title'] = TRUE;
   }
 }
@@ -251,7 +262,7 @@ function houseinrwanda_theme_preprocess_views_view_unformatted(&$variables)
         if ($result_row instanceof ResultRow) {
           $view_builder = Drupal::entityTypeManager()->getViewBuilder('node');
           $pre_render = $view_builder->view($result_row->_entity, 'teaser');
-          array_push($reformatted_rows, ['content' => $pre_render, 'attributes' => $row['attributes']]);
+          $reformatted_rows[] = ['content' => $pre_render, 'attributes' => $row['attributes']];
         }
       }
       $variables['rows'] = $reformatted_rows;
