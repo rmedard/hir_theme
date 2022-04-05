@@ -25,6 +25,15 @@ jQuery-countdown:
   js:
     /libraries/jquery-countdown/dist/jquery.countdown.min.js: { minified: true }
 
+jQuery-number:
+  remote: https://github.com/customd/jquery-number
+  license:
+    name: GNU-GPL-2.0-or-later
+    url: https://github.com/customd/jquery-number#readme
+    gpl-compatible: true
+  js:
+    /libraries/jquery-number/jquery.number.min.js: { minified: true }
+
 global-styling:
   version: VERSION
   js:
@@ -36,6 +45,7 @@ global-styling:
       node_modules/select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css: { minified: true }
       css/style.css: { }
   dependencies:
+    - core/jquery
     - webform/webform.element.telephone
     - webform/webform.element.select2
     - flexslider/flexslider

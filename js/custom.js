@@ -56,6 +56,15 @@
       $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
       // $(context).find('input#edit-subscription-active').removeClass('form-control');
 
+      const priceField = $(context).find('input#edit-field-advert-price-0-value');
+      priceField.attr('type', 'text');
+      priceField.number(true, 0);
+      $(context).find('form#node-advert-edit-form').submit(function() {
+        const value  = priceField.val();
+        priceField.attr('type', 'number');
+        priceField.val(value);
+      });
+
       const values = {
         'border-radius': '5px',
         'height': '32px',
@@ -76,7 +85,6 @@
         itemMargin: 5
       });
 
-      $(context).find('ins.adsbygoogle-noablate').remove();
     }
   };
 })(jQuery, Drupal);
