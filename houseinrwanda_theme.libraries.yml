@@ -25,15 +25,6 @@ jQuery-countdown:
   js:
     /libraries/jquery-countdown/dist/jquery.countdown.min.js: { minified: true }
 
-jQuery-number:
-  remote: https://github.com/customd/jquery-number
-  license:
-    name: GNU-GPL-2.0-or-later
-    url: https://github.com/customd/jquery-number#readme
-    gpl-compatible: true
-  js:
-    /libraries/jquery-number/jquery.number.min.js: { minified: true }
-
 global-styling:
   version: VERSION
   js:
