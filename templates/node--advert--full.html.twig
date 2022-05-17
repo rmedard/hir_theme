@@ -75,6 +75,16 @@
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     {{ content.field_advert_picture }}
+    {% if node.field_advert_video_presentation.value %}
+    <div class="card border-light mt-2">
+      <div class="card-header border-light">
+        <h4 class="card-title m-0 text-secondary">{{ 'Video presentation' }}</h4>
+      </div>
+      <div class="card-body p-2">
+        {{ content.field_advert_video_presentation }}
+      </div>
+    </div>
+    {% endif %}
     <div class="card border-light mt-2">
       <div class="card-header border-light">
         <h4 class="card-title m-0 text-secondary">{{ 'Property details' }}</h4>

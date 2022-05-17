@@ -62,6 +62,10 @@ a.navbar-brand > img {
   padding: 0;
 }
 
+figure.youtube-container {
+  margin: 0;
+}
+
 nav#navbar-main {
   background-image: linear-gradient(90deg, $primary-shade, $accent-shade);
   ul.nav > li.nav-item {
