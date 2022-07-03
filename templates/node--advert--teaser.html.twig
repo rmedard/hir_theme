@@ -110,8 +110,8 @@
                 <small class="text-muted">| Ref: {{ content.field_advert_reference|field_value }}</small>
               </div>
               <div class="advert-buttons">
-                {% if content.field_advert_video_presentation %}
-                  <i class="fa fa-youtube"></i>
+                {% if node.field_advert_video_presentation.value %}
+                  <i class="fa fa-youtube text-danger"></i>
                 {% endif %}
                 {% if content.is_featured %}
                   <i class="fa fa-star text-warning"></i>
