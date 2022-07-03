@@ -109,9 +109,14 @@
                 <span class="badge bg-success">{{ content.field_advert_type|field_value }}</span>
                 <small class="text-muted">| Ref: {{ content.field_advert_reference|field_value }}</small>
               </div>
-              {% if content.is_featured %}
-                <i class="fa fa-star text-warning"></i>
-              {% endif %}
+              <div class="advert-buttons">
+                {% if content.field_advert_video_presentation %}
+                  <i class="fa fa-youtube"></i>
+                {% endif %}
+                {% if content.is_featured %}
+                  <i class="fa fa-star text-warning"></i>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
