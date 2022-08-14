@@ -39,7 +39,7 @@
                         - Ref: <span>{{ advert.field_advert_reference.value }}</span>
                         {% if advert.field_advert_type.value != 'auction' %}
                             {% if advert.field_advert_price_negociable.value == '1' %}
-                                <span> - Negotiable</span>
+                                <span> - Price on request</span>
                             {% else %}
                                 <span> - {{ advert.field_advert_price.value|number_format }} {{ advert.field_advert_currency.value|upper }}</span>
                             {% endif %}
