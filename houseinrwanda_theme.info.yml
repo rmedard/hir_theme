@@ -8,9 +8,6 @@ base theme: bootstrap_barrio
 screenshot: hir_screenshot.png
 
 libraries:
-  - houseinrwanda_theme/moment
-  - houseinrwanda_theme/moment-tz
-  - houseinrwanda_theme/jQuery-countdown
   - houseinrwanda_theme/global-styling
 libraries-override:
   bootstrap_barrio/global-styling: false
