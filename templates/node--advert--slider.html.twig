@@ -85,7 +85,7 @@
     <div class="card-footer d-flex justify-content-between border-0">
       <div class="badges">
         <span class="badge bg-danger">{{ content.field_advert_type|field_value }}</span>
-        <span class="badge bg-danger">{{ content.field_advert_property_type|field_value }}</span>
+        {{ content.property_type_pill }}
       </div>
       <a href="{{ url }}">{{ 'Read more' }}</a>
     </div>
