@@ -73,16 +73,16 @@
 ] %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass(cardClasses) }}>
-    <div class="card-header bg-info text-white d-flex justify-content-between gap-2">
+    <div class="card-header bg-info text-white d-flex justify-content-between gap-2 p-2">
       <div class="text-nowrap overflow-hidden">{{ 'Cyamunara i ' }}{{ content.field_advert_locality_sector|field_value }}</div>
       <strong class="text-nowrap">Ref: {{ content.field_advert_reference|field_value }}</strong>
     </div>
-    <div class="card-body py-2">
+    <div class="card-body p-2">
       <div class="text-nowrap overflow-hidden"><i class="fas fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}</div>
       <div><strong>Starting value:</strong> {{ node.field_advert_bid_starting_value.value|number_format }} ({{ content.field_advert_currency|field_value }})</div>
       <div><strong>Time left:</strong> <span id="countdown"></span></div>
     </div>
-    <div class="card-footer d-flex justify-content-between border-0">
+    <div class="card-footer d-flex justify-content-between border-0 p-2">
       <div class="badges">
         <span class="badge bg-danger">{{ content.field_advert_type|field_value }}</span>
         {{ content.property_type_pill }}
