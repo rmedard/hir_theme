@@ -16,7 +16,7 @@ use Drupal\views\ViewExecutable;
  *
  * Replace Barrio setting options with subtheme ones.
  */
-function houseinrwanda_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state)
+function houseinrwanda_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state): void
 {
   $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = array(
     'bg-primary' => t('Primary'),
@@ -39,7 +39,7 @@ function houseinrwanda_theme_form_system_theme_settings_alter(&$form, FormStateI
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_node(&$variables)
+function houseinrwanda_theme_preprocess_node(&$variables): void
 {
   $node = $variables['node'];
   if ($node instanceof NodeInterface and $node->bundle() === 'advert') {
@@ -75,7 +75,7 @@ function houseinrwanda_theme_preprocess_node(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_menu(&$variables)
+function houseinrwanda_theme_preprocess_menu(&$variables): void
 {
   if (isset($variables['menu_name']) and $variables['menu_name'] === 'adverts-secondary-menu') {
     $featured = Drupal::entityQuery('node')
@@ -143,7 +143,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_page(&$variables)
+function houseinrwanda_theme_preprocess_page(&$variables): void
 {
   $page_path = Drupal::request()->getPathInfo();
   $variables['show_sidebars'] = TRUE;
@@ -170,7 +170,7 @@ function houseinrwanda_theme_preprocess_page(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_page_title(&$variables)
+function houseinrwanda_theme_preprocess_page_title(&$variables): void
 {
   $queryString = Drupal::request()->getQueryString();
   if (isset($queryString) && str_contains($queryString, 'advert_target_pr')) {
@@ -191,7 +191,7 @@ function houseinrwanda_theme_preprocess_page_title(&$variables)
       $variables['show_page_title'] = TRUE;
     }
 
-    if ($node->bundle() == 'advert' and $node->get('field_advert_rented_sold')->value == true) {
+    if ($node->bundle() == 'advert' and $node->get('field_advert_rented_sold')->value) {
       if ($node->get('field_advert_type')->value == 'rent') {
         $variables['rented_sold'] = 'Rented';
       } else {
@@ -214,7 +214,7 @@ function houseinrwanda_theme_preprocess_page_title(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_block(&$variables)
+function houseinrwanda_theme_preprocess_block(&$variables): void
 {
   if ($variables['derivative_plugin_id'] == 'rir_realtime_block') {
     $variables['#cache']['max-age'] = 0;
@@ -222,8 +222,7 @@ function houseinrwanda_theme_preprocess_block(&$variables)
 
   $blocks_with_background = [
     'webform_block',
-    'direct_access_block',
-    'views_block:manage_property_requests-block_top_prs'
+    'direct_access_block'
   ];
   $content_blocks_with_background = [
     'block-houseinrwanda-theme-registertoourfreepropertyalert'
@@ -241,7 +240,7 @@ function houseinrwanda_theme_preprocess_block(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_flexslider(&$variables)
+function houseinrwanda_theme_preprocess_flexslider(&$variables): void
 {
   $variables['attributes']['class'][] = 'mb-4';
   $variables['attributes']['class'][] = 'border-0';
@@ -251,7 +250,7 @@ function houseinrwanda_theme_preprocess_flexslider(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_views_view_unformatted(&$variables)
+function houseinrwanda_theme_preprocess_views_view_unformatted(&$variables): void
 {
   $view = $variables['view'];
   if ($view instanceof ViewExecutable) {
@@ -273,7 +272,7 @@ function houseinrwanda_theme_preprocess_views_view_unformatted(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_container(&$variables)
+function houseinrwanda_theme_preprocess_container(&$variables): void
 {
   if (isset($variables['attributes']['data-drupal-selector'])) {
     $selector = $variables['attributes']['data-drupal-selector'];
@@ -288,7 +287,7 @@ function houseinrwanda_theme_preprocess_container(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_input(&$variables)
+function houseinrwanda_theme_preprocess_input(&$variables): void
 {
   if (isset($variables['attributes']['id'])) {
     $id = $variables['attributes']['id'];
@@ -306,7 +305,7 @@ function houseinrwanda_theme_preprocess_input(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_image(&$variables)
+function houseinrwanda_theme_preprocess_image(&$variables): void
 {
   $variables['attributes']['class'][] = 'mb-0';
 }
@@ -314,7 +313,7 @@ function houseinrwanda_theme_preprocess_image(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_form(&$variables)
+function houseinrwanda_theme_preprocess_form(&$variables): void
 {
   $form_id = $variables['attributes']['id'];
   if ($form_id === 'direct-access-form') {
@@ -327,7 +326,7 @@ function houseinrwanda_theme_preprocess_form(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_form_element(&$variables)
+function houseinrwanda_theme_preprocess_form_element(&$variables): void
 {
   $no_margin_types = ['checkbox', 'radio'];
   if (!in_array($variables['type'], $no_margin_types) && isset($variables['name']) && $variables['name'] !== 'reference_number') {
@@ -347,7 +346,7 @@ function houseinrwanda_theme_preprocess_form_element(&$variables)
 /**
  * Implements hook_preprocess_HOOK().
  */
-function houseinrwanda_theme_preprocess_pager(&$variables)
+function houseinrwanda_theme_preprocess_pager(&$variables): void
 {
   $variables['attributes']['class'][] = 'mt-3';
 }
@@ -355,7 +354,7 @@ function houseinrwanda_theme_preprocess_pager(&$variables)
 /**
  * Implements hook_form_alter().
  */
-function houseinrwanda_theme_form_alter(&$form, FormStateInterface $form_state, $form_id)
+function houseinrwanda_theme_form_alter(&$form, FormStateInterface $form_state, $form_id): void
 {
   if ($form_id === 'views_exposed_form') {
     if ($form['#id'] === 'views-exposed-form-adverts-view-page-search-adverts') {
