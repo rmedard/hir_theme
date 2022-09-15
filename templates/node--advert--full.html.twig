@@ -94,7 +94,7 @@
           <div class="col-md-6">
             <div><strong>{{ 'Advert type' }}:</strong> {{ content.field_advert_type|field_value }}</div>
             {% if node.field_advert_type.value != 'auction' %}
-            <div><strong>{{ 'Price' }}:</strong> {% if negotiable %} <span>Negotiable</span> {% else %}{{ price|number_format }} {{ currency|capitalize }} {{ content.payable }}{% endif %}</div>
+            <div><strong>{{ 'Price' }}:</strong> {% if negotiable %} <span>Price on request</span> {% else %}{{ price|number_format }} {{ currency|capitalize }} {{ content.payable }}{% endif %}</div>
             {% endif %}
             <div><strong>{{ 'Bedrooms' }}:</strong> {{ node.field_advert_bedrooms.value }}</div>
             <div><strong>{{ 'Total floors' }}:</strong> {{ node.field_advert_total_floors.value }}</div>
