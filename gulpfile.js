@@ -24,11 +24,11 @@ const paths = {
   scss: {
     src: './scss/style.scss',
     dest: './css',
-    watch: './scss/**/*.scss',
-    bootstrap: './node_modules/bootstrap/scss/bootstrap.scss'
+    watch: './scss/**/*.scss'
   },
   js: {
     bootstrap: './node_modules/bootstrap/dist/js/bootstrap.min.js',
+    bootstrap_map: './node_modules/bootstrap/dist/js/bootstrap.min.js.map',
     popper: './node_modules/@popperjs/core/dist/umd/popper.min.js',
     barrio: '../../contrib/bootstrap_barrio/js/barrio.js',
     dest: './js'
@@ -41,7 +41,7 @@ function styles() {
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
-        './node_modules/bootstrap/scss'
+        '../../node_modules/bootstrap_barrio/scss'
       ]
     }).on('error', sass.logError))
     .pipe($.postcss(postcssProcessors))
@@ -67,7 +67,7 @@ function styles() {
 
 // Move the javascript files into our js folder
 function js() {
-  return gulp.src([paths.js.bootstrap, paths.js.popper, paths.js.barrio])
+  return gulp.src([paths.js.bootstrap, paths.js.bootstrap_map, paths.js.popper, paths.js.barrio])
     .pipe(gulp.dest(paths.js.dest))
     .pipe(browserSync.stream())
 }
