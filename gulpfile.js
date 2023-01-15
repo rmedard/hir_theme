@@ -41,7 +41,8 @@ function styles() {
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
-        '../../node_modules/bootstrap_barrio/scss'
+        './node_modules/bootstrap/scss',
+        '../../contrib/bootstrap_barrio/scss'
       ]
     }).on('error', sass.logError))
     .pipe($.postcss(postcssProcessors))
