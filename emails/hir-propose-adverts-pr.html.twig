@@ -4,8 +4,10 @@
   <table class="tg">
     <tr>
       <td class="tg-0pky" colspan="2">
-        <img src="{{ protocol ~ 'public://default_images/email_banner.gif'|image_style('email_banner') }}"
-             class="templateImage" alt="email_banner">
+        <a href="http://hirproposed.s3-website.eu-central-1.amazonaws.com" target="_blank">
+          <img src="https://rirbucket.s3.eu-central-1.amazonaws.com/banners/HiR_PR_Proposed_Submission_Banner.gif"
+               class="templateImage" alt="email_banner">
+        </a>
       </td>
     </tr>
     <tr>
@@ -34,7 +36,14 @@
           <p id="titleId">
             <a href="{{ drupal_url('node/' ~ advert.id, {absolute: true}) }}">{{ advert.title.value|capitalize }}</a>
             - Ref: <span>{{ advert.field_advert_reference.value }}</span> -
-            <span>{{ advert.field_advert_price.value|number_format }} {{ advert.field_advert_currency.value|upper }}</span><br/>
+            {% if advert.field_advert_type.value != 'auction' %}
+              {% if advert.field_advert_price_negociable.value == '1' %}
+                <span> - Price on request</span>
+              {% else %}
+                <span> - {{ advert.field_advert_price.value|number_format }} {{ advert.field_advert_currency.value|upper }}</span>
+              {% endif %}
+            {% endif %}
+            <br/>
             {{ advert.field_advert_locality_district.value }}, {{ advert.field_advert_locality_sector.value }}
             <br/>
             {{ advert.field_advert_property_type.value|capitalize }}

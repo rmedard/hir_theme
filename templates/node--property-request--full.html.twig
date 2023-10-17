@@ -107,7 +107,7 @@
                   <i class="fas fa-map-marker-alt"></i> {{ node.field_pr_area_city_interest.value }} <br>
                   <dl class="row mb-0">
                     <dt class="col-6">Budget</dt>
-                    <dd class="col-6 m-0">{{ content.field_pr_maximum|field_value }} {{ node.field_pr_currency|field_value }} {% if node.field_pr_request_type.value == 'rent' %} <small>/{{ node.field_pr_payable.value }}</small>{% endif %}</dd>
+                    <dd class="col-6 m-0">{{ content.field_pr_maximum|field_value }} {{ node.field_pr_currency.value|upper }}{% if node.field_pr_request_type.value == 'rent' %}<small>/{{ node.field_pr_payable.value }}</small>{% endif %}</dd>
 
                     <dt class="col-6">{{ content.field_pr_urgency|field_label }}</dt>
                     <dd class="col-6 m-0">{{ content.field_pr_urgency|field_value }}</dd>

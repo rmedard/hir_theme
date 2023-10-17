@@ -1,30 +1,3 @@
-moment:
-  remote: https://momentjs.com/
-  license:
-    name: GNU-GPL-2.0-or-later
-    url: https://github.com/woothemes/FlexSlider/blob/master/LICENSE.md
-    gpl-compatible: true
-  js:
-    /libraries/moment/min/moment.min.js: { minified: true }
-
-moment-tz:
-  remote: https://momentjs.com/timezone/docs/
-  license:
-    name: GNU-GPL-2.0-or-later
-    url: https://github.com/moment/moment-timezone/blob/develop/README.md
-    gpl-compatible: true
-  js:
-    /libraries/moment-timezone/builds/moment-timezone-with-data-10-year-range.min.js: { minified: true }
-
-jQuery-countdown:
-  remote: https://hilios.github.io/jQuery.countdown/documentation.html
-  license:
-    name: GNU-GPL-2.0-or-later
-    url: https://github.com/hilios/jQuery.countdown/blob/master/README.md
-    gpl-compatible: true
-  js:
-    /libraries/jquery-countdown/dist/jquery.countdown.min.js: { minified: true }
-
 global-styling:
   version: VERSION
   js:

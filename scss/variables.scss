@@ -25,11 +25,11 @@ $theme-colors: (
   light: $gray-100,
   dark: $gray-800
 );
-$brand-primary: $accent-shade;
-//$brand-success: $green;
-//$brand-info: $teal;
-//$brand-warning: $orange;
-//$brand-danger: $red;
+$brand-primary: $primary-shade;
+$brand-success: $accent-shade;
+$brand-info: $cyan;
+$brand-warning: $yellow;
+$brand-danger: $red;
 $brand-inverse: $primary-shade;
 // Body
 //
@@ -54,6 +54,7 @@ $enable-shadows: false;
 $enable-gradients: false;
 // Breadcrumbs (Works only on Bootstrap 5+)
 // $breadcrumb-divider: quote(">");
+
 
 $pagination-active-bg: $accent-shade;
 $pagination-active-border-color: $accent-shade;

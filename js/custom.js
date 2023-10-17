@@ -13,7 +13,6 @@
   Drupal.webform.intlTelInput.options = Drupal.webform.intlTelInput.options || {};
   Drupal.webform.select2 = Drupal.webform.select2 || {};
   Drupal.flexslider = Drupal.flexslider || {};
-  Drupal.moment = Drupal.moment || {};
 
   Drupal.behaviors.houseinrwanda_theme = {
     attach: function (context, settings) {
@@ -25,15 +24,6 @@
       $(context).find('input.form-tel').once(main).each(function () {
         $(this).intlTelInput({initialCountry: 'rw', nationalMode: false});
       });
-
-      if (settings.bid !== undefined) {
-        const expirationDate = moment.tz(settings.bid.expiration, "UCT");
-        $('#countdown').countdown(expirationDate.toDate(), function (event) {
-          $(this).html(event.strftime('%D day%!D %H:%M:%S')).addClass('text-danger').css('font-weight', 'bold');
-        }).on('finish.countdown', function () {
-          $(this).html("Closed").addClass('text-danger').css('font-weight', 'bold');
-        });
-      }
 
       $(context).find('select#edit-field-pr-property-type-value').once(main).select2({
         theme: 'bootstrap-5',
