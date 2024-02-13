@@ -74,18 +74,18 @@
         {% if page.secondary_menu or page.top_header or page.top_header_form %}
           <nav{{ navbar_attributes.addClass('d-flex flex-column p-0 fixed-top') }}>
             <div class="container-fluid flex-column p-0">
+                <div class="alert alert-primary alert-dismissible fade show rounded-0" role="alert" id="android-app-spot" hidden>
+                    <div class="row">
+                        <b class="col-8">HouseInRwanda App</b>
+                        <div class="col-4">
+                            <a
+                                    class="btn btn-sm btn-outline border-white text-white float-end"
+                                    href="https://play.google.com/store/apps/details?id=com.houseinrwanda.houseinrwanda&pli=1">Get the app</a>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
               <div class="hir-header-navbar bg-white w-100 pt-2">
-                  <div class="alert alert-primary alert-dismissible fade show rounded-0" role="alert" id="android-app-spot" hidden>
-                      <div class="row">
-                          <b class="col-8">HouseInRwanda App</b>
-                          <div class="col-4">
-                              <a
-                                      class="btn btn-sm btn-outline border-white text-white float-end"
-                                      href="https://play.google.com/store/apps/details?id=com.houseinrwanda.houseinrwanda&pli=1">Get the app</a>
-                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                          </div>
-                      </div>
-                  </div>
                   <div class="container">
                   <div class="d-flex flex-nowrap justify-content-between align-items-center">
                     <div class="logo-region">{{ page.top_header }}</div>
