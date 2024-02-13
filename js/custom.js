@@ -21,6 +21,12 @@
 
       $(content).find('img').addClass('rounded');
 
+      const isMobile = navigator.userAgent.toLowerCase().includes('mobile');
+      const isAndroidPhone = navigator.userAgent.toLowerCase().includes('android');
+      if (isMobile && isAndroidPhone) {
+        $(context).find('div#android-app-spot').once(main).removeAttr('hidden');
+      }
+
       $(context).find('input.form-tel').once(main).each(function () {
         $(this).intlTelInput({initialCountry: 'rw', nationalMode: false});
       });
