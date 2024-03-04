@@ -21,8 +21,11 @@
 
       $(content).find('img').addClass('rounded');
 
-      const isMobile = navigator.userAgent.toLowerCase().includes('mobile');
-      const isAndroidPhone = navigator.userAgent.toLowerCase().includes('android');
+      const userAgent = navigator.userAgent.toLowerCase();
+      console.log(userAgent);
+      const isMobile = userAgent.includes('mobile');
+      const isAndroidPhone = userAgent.includes('android');
+      const isIPhone = userAgent.includes('iphone');
       if (isMobile && isAndroidPhone) {
         $(context).find('div#android-app-spot').once(main).removeAttr('hidden');
       }
