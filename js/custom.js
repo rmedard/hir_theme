@@ -26,13 +26,12 @@
       const isMobile = userAgent.includes('mobile');
       const isAndroidPhone = userAgent.includes('android');
       const isIPhone = userAgent.includes('iphone');
-      if (isMobile) {
-        if (isAndroidPhone) {
+      if (isMobile && isAndroidPhone) {
           $(context).find('div#android-app-spot').once(main).removeAttr('hidden');
-        }
-        if (isIPhone) {
-          $(context).find('div#ios-app-spot').once(main).removeAttr('hidden');
-        }
+      }
+      // IPhone user agent does not include 'mobile'
+      if (isIPhone) {
+        $(context).find('div#ios-app-spot').once(main).removeAttr('hidden');
       }
 
       $(context).find('input.form-tel').once(main).each(function () {
