@@ -88,7 +88,26 @@
                         <div class="col-4">
                             <a
                                     class="btn btn-sm btn-outline border-white text-white float-end"
-                                    href="https://play.google.com/store/apps/details?id=com.houseinrwanda.houseinrwanda&pli=1" style="font-size: 10px">Get the app</a>
+                                    href="{{ drupal_token(site:android) }}" style="font-size: 10px">Get the app</a>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-dismissible fade show rounded-0 w-100 m-0" role="alert" id="ios-app-spot" style="background-color: #248CC7FF" hidden>
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-3"><img src="{{ base_path ~ directory  }}/images/app_logo.png" alt="HouseInRwanda Logo" class="img-fluid rounded-2"></div>
+                                <div class="col-9 text-white g-0">
+                                    <h6 class="m-0" style="font-size: 14px">HouseInRwanda App</h6>
+                                    <small class="m-0" style="font-size: 10px">Better user experience</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <a
+                                    class="btn btn-sm btn-outline border-white text-white float-end"
+                                    href="{{ drupal_token(site:ios) }}" style="font-size: 10px">Get the app</a>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
