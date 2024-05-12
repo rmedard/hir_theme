@@ -73,7 +73,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
       if ($node->bundle() === 'agent') {
           $isFeatured = $node->get('field_agent_category')->value === 'featured';
           $isVip = $node->get('field_agent_category')->value === 'vip';
-          $isStandard = !$variables['isFeatured'] && !$variables['isVip'];
+          $isStandard = !$isFeatured && !$isVip;
           $variables['label'] = $node->getTitle() . ' #';
           $node->setTitle($variables['label']);
           dpm($variables);
