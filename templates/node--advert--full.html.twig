@@ -155,10 +155,10 @@
               {% set logo_uri = publisher.field_agent_logo.entity.fileuri %}
               <a href="{{ drupal_url('node/' ~ publisher.nid.value) }}">
                 {% if logo_uri %}
-                  {{ drupal_image(logo_uri, 'thumbnail', {alt: publisher.title.value, title: publisher.title.value}) }}
+                  {{ drupal_image(logo_uri, 'thumbnail', {alt: publisher.title.value, title: publisher.label}) }}
                 {% else %}
-                  {{ drupal_image('public://default_images/unknown.jpg', 'thumbnail', {alt: publisher.title.value}) }}
-{#                  <img src="{{ 'public://default_images/unknown.jpg'|image_style('thumbnail') }}" alt="{{ publisher.title.value }}">#}
+{#                  {{ drupal_image('public://default_images/unknown.jpg', 'thumbnail', {alt: publisher.title.value}) }}#}
+                  <img src="{{ 'public://default_images/unknown.jpg'|image_style('thumbnail') }}" alt="{{ publisher.title.value }}">
                 {% endif %}
               </a>
             </div>
