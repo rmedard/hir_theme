@@ -157,7 +157,8 @@
                 {% if logo_uri %}
                   {{ drupal_image(logo_uri, 'thumbnail', {alt: publisher.title.value, title: publisher.title.value}) }}
                 {% else %}
-                  <img src="{{ 'public://default_images/unknown.jpg'|image_style('thumbnail') }}" alt="{{ publisher.title.value }}">
+                  {{ drupal_image('public://default_images/unknown.jpg', 'thumbnail', {alt: publisher.title.value}) }}
+{#                  <img src="{{ 'public://default_images/unknown.jpg'|image_style('thumbnail') }}" alt="{{ publisher.title.value }}">#}
                 {% endif %}
               </a>
             </div>
