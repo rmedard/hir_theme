@@ -72,6 +72,7 @@
 {% set currency = attribute(content.field_advert_currency.0, '#markup') %}
 {% set negotiable = node.field_advert_price_negociable.value == '1' %}
 {% set publisher = attribute(content.field_advert_advertiser.0, '#options').entity %}
+{% set bedroomsLabel = node.field_advert_property_type.value == 'office' ? 'Units' : 'Bedrooms' %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
     {{ content.field_advert_picture }}
@@ -96,7 +97,7 @@
             {% if node.field_advert_type.value != 'auction' %}
             <div><strong>{{ 'Price' }}:</strong> {% if negotiable %} <span>Price on request</span> {% else %}{{ price|number_format }} {{ currency|capitalize }} {{ content.payable }}{% endif %}</div>
             {% endif %}
-            <div><strong>{{ 'Bedrooms' }}:</strong> {{ node.field_advert_bedrooms.value }}</div>
+            <div><strong>{{ bedroomsLabel }}:</strong> {{ node.field_advert_bedrooms.value }}</div>
             <div><strong>{{ 'Total floors' }}:</strong> {{ node.field_advert_total_floors.value }}</div>
             <div><strong>{{ 'Address' }}:</strong> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}, {{ node.field_advert_locality_sector.value }}</div>
           </div>
