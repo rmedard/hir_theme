@@ -71,7 +71,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
       }
 
       if ($node->bundle() === 'agent') {
-          var_dump($variables);
+          dpm($variables);
           $variables['title'] = 'Bwahahaa';
       }
   }
