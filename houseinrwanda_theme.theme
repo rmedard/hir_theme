@@ -71,7 +71,9 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
       }
 
       if ($node->bundle() === 'agent') {
-          $variables['node']->title = $node->getTitle() . ' $';
+          $variables['isFeatured'] = $node->get('field_agent_category')->value === 'featured';
+          $variables['isVip'] = $node->get('field_agent_category')->value === 'vip';
+          $variables['isStandard'] = !$variables['isFeatured'] && !$variables['isVip'];
           $variables['label'] = $node->getTitle() . ' #';
           dpm($variables);
       }
