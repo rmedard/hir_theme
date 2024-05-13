@@ -83,10 +83,10 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
           $isFeatured = $node->get('field_agent_category')->value === 'featured';
           $isVip = $node->get('field_agent_category')->value === 'vip';
           if ($isFeatured) {
-              $variables['label'] = Markup::create('<span class="d-flex"><span>' . $node->getTitle() . '</span>' . $blueBadgeHtml . '</span>');
+              $variables['label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span>' . $node->getTitle() . '</span>' . $blueBadgeHtml . '</span>');
           }
           if ($isVip) {
-              $variables['label'] = Markup::create('<span class="d-flex"><span>' . $node->getTitle() . '</span>' . $goldBadgeHtml . '</span>');
+              $variables['label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span>' . $node->getTitle() . '</span>' . $goldBadgeHtml . '</span>');
           }
           $node->setTitle($variables['label']);
       }
