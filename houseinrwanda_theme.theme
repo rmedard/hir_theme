@@ -5,6 +5,7 @@
  * Functions to support theming in the SASS Starterkit subtheme.
  */
 
+use Drupal\Component\Render\PlainTextOutput;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\AttributeString;
 use Drupal\node\NodeInterface;
@@ -74,7 +75,15 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
           $isFeatured = $node->get('field_agent_category')->value === 'featured';
           $isVip = $node->get('field_agent_category')->value === 'vip';
           $isStandard = !$isFeatured && !$isVip;
-          $variables['label'] = $node->getTitle() . ' #';
+
+          $page_path = Drupal::request()->getPathInfo();
+          $location = $page_path . Drupal::theme()->getActiveTheme()->getPath();
+//          $badgeHtml = '<svg>
+//                <use xlink:href="'. $location .'/images/icons/badge-check-blue.svg#{{ svgicon }}"></use>
+//              </svg>';
+          $badgeHtml = '<img src=' . $location . '/images/icons/badge-check-blue.svg" alt="logo" />';
+          $badge = PlainTextOutput::renderFromHtml($badgeHtml);
+          $variables['label'] = $node->getTitle() . ' # ' . $badge;
           $node->setTitle($variables['label']);
           dpm($variables);
       }
