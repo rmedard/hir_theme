@@ -78,7 +78,8 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
 
           $host = Drupal::request()->getSchemeAndHttpHost();
           $location = $host . '/' . Drupal::theme()->getActiveTheme()->getPath();
-          $blueCheck = $location . '/images/icons/badge-check-blue.svg';
+          $blueCheck = $location . '/images/icons/check-blue.svg';
+          $goldCheck = $location . '/images/icons/check-gold.svg';
 //          $badgeHtml = '<svg>
 //                <use xlink:href="'. $location .'/images/icons/badge-check-blue.svg#{{ svgicon }}"></use>
 //              </svg>';
@@ -96,7 +97,6 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
           $badge = \Drupal\Core\Render\Markup::create($badgeHtml);
           $variables['label'] = \Drupal\Core\Render\Markup::create('<span>' . $node->getTitle() . '</span>' . $badgeHtml);
           $node->setTitle($variables['label']);
-          dpm([$location, $badgeHtml]);
       }
   }
 }
