@@ -76,8 +76,8 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
           $isVip = $node->get('field_agent_category')->value === 'vip';
           $isStandard = !$isFeatured && !$isVip;
 
-          $page_path = Drupal::request()->getPathInfo();
-          $location = $page_path . Drupal::theme()->getActiveTheme()->getPath();
+          $host = Drupal::request()->getSchemeAndHttpHost();
+          $location = $host . '/' . Drupal::theme()->getActiveTheme()->getPath();
           $blueCheck = $location . '/images/icons/badge-check-blue.svg';
 //          $badgeHtml = '<svg>
 //                <use xlink:href="'. $location .'/images/icons/badge-check-blue.svg#{{ svgicon }}"></use>
