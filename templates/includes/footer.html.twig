@@ -33,17 +33,17 @@
     </a>
   {% endif %}
 </div>
-<div class="mobile-apps">
-  {% if drupal_token('site:android') is not empty %}
-    <a href="{{ drupal_token('site:android') }}" target="_blank" style="text-decoration: none">
-        {{ drupal_image('public://apps-assets/google-play-badge.png', {alt: 'Our android app'}) }}
-    </a>
-  {% endif %}
-  {% if drupal_token('site:ios') is not empty %}
-    <a href="{{ drupal_token('site:ios') }}" target="_blank" style="text-decoration: none">
-        {{ drupal_image('public://apps-assets/app-store-badge.png', {alt: 'Our ios app'}) }}
-    </a>
-  {% endif %}
-</div>
+{#<div class="mobile-apps">#}
+{#  {% if drupal_token('site:android') is not empty %}#}
+{#    <a href="{{ drupal_token('site:android') }}" target="_blank" style="text-decoration: none">#}
+{#        {{ drupal_image('public://apps-assets/google-play-badge.png', {alt: 'Our android app'}) }}#}
+{#    </a>#}
+{#  {% endif %}#}
+{#  {% if drupal_token('site:ios') is not empty %}#}
+{#    <a href="{{ drupal_token('site:ios') }}" target="_blank" style="text-decoration: none">#}
+{#        {{ drupal_image('public://apps-assets/app-store-badge.png', {alt: 'Our ios app'}) }}#}
+{#    </a>#}
+{#  {% endif %}#}
+{#</div>#}
 
 <img src="https://www.google-analytics.com/collect?v=1&tid=UA-107151364-1&t=event&ec=email&ea=open" alt="google_analytics"/>
