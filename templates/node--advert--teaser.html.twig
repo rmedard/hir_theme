@@ -96,11 +96,12 @@
             <div class="advert-body-main">
               <span><i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}</span>
               <p class="mb-0 d-flex">
-                <span>Published onn {{ date(publishedOn)|date('j F') }} | Expires on {{ date(expiresOn)|date('j F') }} {% if publisher %}|</span>
+                <span>Published on {{ date(publishedOn)|date('j F') }} | Expires on {{ date(expiresOn)|date('j F') }} {% if publisher %}|</span>
                 <span class="d-flex">
-                  <span class="px-1">Published byy</span>
-                  {{ drupal_link(content.agent_label, 'node/' ~ publisher.id) }}
-                  <a href="#">{{ content.agent_label }}</a>
+                  <span class="px-1">Published by</span>
+                  <span>name</span>
+{#                  {{ drupal_link(content.agent_label, 'node/' ~ publisher.id) }}#}
+{#                  <a href="#">{{ content.agent_label }}</a>#}
                 </span>
               </p>
               {% endif %}
