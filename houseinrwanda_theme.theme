@@ -84,7 +84,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
               $isVip = $agentCategory === 'vip';
               if ($isFeatured or $isVip) {
                   $badge = $isFeatured ? $blueBadgeHtml : $goldBadgeHtml;
-                  $agentName = $node->field_advert_advertiser->entity->label;
+                  $agentName = $node->field_advert_advertiser->entity->title;
                   $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span>' . $agentName . '</span>' . $badge . '</span>');
               }
           }
