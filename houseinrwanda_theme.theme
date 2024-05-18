@@ -46,7 +46,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
   $node = $variables['node'];
   if ($node instanceof NodeInterface) {
       if ($node->bundle() === 'advert') {
-          dpm($variables);
+          dpm($node->get('field_advert_advertiser')->entity->get('field_agent_category')->getString());
           $themingService = Drupal::service('rir_interface.theming_service');
           $isRent = in_array($node->get('field_advert_type')->value, ['rent', 'short_rent']);
           $variables['content']['property_type_pill'] = ['#markup' => $themingService->getPropertyTypePill($node)];
