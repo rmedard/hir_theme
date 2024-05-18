@@ -45,7 +45,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
 {
   $node = $variables['node'];
   if ($node instanceof NodeInterface) {
-      if ($node->bundle() === 'advert' || $node->bundle() === 'agent') {
+      if (in_array($node->bundle(), ['advert', 'agent'])) {
           $host = Drupal::request()->getSchemeAndHttpHost();
           $location = $host . '/' . Drupal::theme()->getActiveTheme()->getPath();
           $blueCheck = $location . '/images/icons/check-blue.svg';
@@ -87,7 +87,6 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
                   $agentName = $node->field_advert_advertiser->entity->label;
                   $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span>' . $agentName . '</span>' . $badge . '</span>');
               }
-              dpm($variables);
           }
 
           if ($node->bundle() === 'agent') {
