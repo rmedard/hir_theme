@@ -71,6 +71,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
                   $variables['content']['price_pill'] = ['#markup' => $themingService->getPropertyPricePill($node)];
               }
           }
+          //$variables['content']['agent_label'] = ;
       }
 
       if ($node->bundle() === 'agent') {
