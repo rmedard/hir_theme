@@ -97,7 +97,7 @@
               <span><i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}</span>
               <p class="mb-0 d-flex">
                 <span>Published on {{ date(publishedOn)|date('j F') }} | Expires on {{ date(expiresOn)|date('j F') }} {% if publisher %}|</span>
-                <span>
+                <span class="d-flex">
                   <span class="px-1">Published by</span>
                   {{ drupal_link(publisher.title.value, 'node/' ~ publisher.id) }}
                 </span>
