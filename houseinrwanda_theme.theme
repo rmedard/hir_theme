@@ -86,6 +86,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
                   $badge = $isFeatured ? $blueBadgeHtml : $goldBadgeHtml;
                   $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span>' . $node->getTitle() . '</span>' . $badge . '</span>');
               }
+              dpm($variables);
           }
 
           if ($node->bundle() === 'agent') {
