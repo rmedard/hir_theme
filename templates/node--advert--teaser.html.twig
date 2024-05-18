@@ -99,9 +99,8 @@
                 <span>Published on {{ date(publishedOn)|date('j F') }} | Expires on {{ date(expiresOn)|date('j F') }} {% if node.field_advert_is_agent.value %}|</span>
                 <span class="d-flex">
                   <span class="px-1">Published by</span>
-                  <span>name</span>
-{#                  {{ drupal_link(content.agent_label, 'node/' ~ publisher.id) }}#}
-{#                  <a href="#">{{ content.agent_label }}</a>#}
+                  {{ drupal_link(content.agent_label, 'node/' ~ publisher.id) }}
+                  <a href="#">{{ content.agent_label }}</a>
                 </span>
               </p>
               {% endif %}
