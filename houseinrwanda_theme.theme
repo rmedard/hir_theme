@@ -76,9 +76,9 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
           $host = Drupal::request()->getSchemeAndHttpHost();
           $location = $host . '/' . Drupal::theme()->getActiveTheme()->getPath();
           $blueCheck = $location . '/images/icons/check-blue.svg';
-          $goldCheck = $location . '/images/icons/check-gold.svg';
-          $blueBadgeHtml = "<img src='" . $blueCheck . "' alt='featured advertiser' style='height: 1em' />";
-          $goldBadgeHtml = "<img src='" . $goldCheck . "' alt='vip advertiser' style='height: 1em' />";
+          $goldCheck = $location . '/images/icons/twitter-gold.svg';
+          $blueBadgeHtml = "<img src='" . $blueCheck . "' alt='featured advertiser' style='height: 1.1em' />";
+          $goldBadgeHtml = "<img src='" . $goldCheck . "' alt='vip advertiser' style='height: 1.1em' />";
 
           $isFeatured = $node->get('field_agent_category')->value === 'featured';
           $isVip = $node->get('field_agent_category')->value === 'vip';
