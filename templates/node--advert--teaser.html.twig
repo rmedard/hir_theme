@@ -102,7 +102,7 @@
                 <span class="pe-1" style="white-space: nowrap">| Expires on {{ date(expiresOn)|date('j F') }}</span>
               </p>
               {% if node.field_advert_is_agent.value %}
-                <span class="d-flex" style="white-space: nowrap">
+                <span class="d-flex">
                   <span class="pe-1">By</span>
                   {{ drupal_link(content.agent_label, 'node/' ~ content.agent_id) }}
                 </span>
