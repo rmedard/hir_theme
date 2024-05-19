@@ -96,16 +96,19 @@
             <div class="advert-body-main">
               <span><i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}</span>
               <p class="mb-0 d-flex">
-                <span>Published on {{ date(publishedOn)|date('j F') }} | Expires on {{ date(expiresOn)|date('j F') }} {% if node.field_advert_is_agent.value %}|</span>
-                <span class="d-flex">
-                  <span class="px-1">Published by</span>
-                  {{ drupal_link(content.agent_label, 'node/' ~ content.agent_id) }}
-                </span>
+                <span>Published on {{ date(publishedOn)|date('j F') }}</span>
+                <span>Expires on {{ date(expiresOn)|date('j F') }}</span>
+                {% if node.field_advert_is_agent.value %}
+                  <span class="d-flex">
+                    <span class="px-1">Published by</span>
+                    {{ drupal_link(content.agent_label, 'node/' ~ content.agent_id) }}
+                  </span>
+                {% endif %}
               </p>
-              {% endif %}
               <p class="mb-0">
                 <strong>Advert: </strong>{{ content.field_advert_type|field_value }},
-                <strong>Property: </strong>{{ content.field_advert_property_type|field_value }}{% if property_type != 'land' %},
+                <strong>Property: </strong>{{ content.field_advert_property_type|field_value }}
+                {% if property_type != 'land' %},
                   <strong>Bedroom: </strong>{{ content.field_advert_bedrooms|field_value }},
                   <strong>Bathrooms: </strong>{{ content.field_advert_bathrooms|field_value }}
                 {% endif %}
