@@ -73,7 +73,7 @@
 ] %}
 {% set image_uri = attribute(content.field_agent_logo[0], '#markup') %}
 <article{{ attributes.addClass(classes) }}>
-  <div{{ content_attributes.addClass(cardClasses) }}>
+  <div{{ content_attributes.addClass(cardClasses) }} style="height: 8em">
     <div class="row">
       <div class="col-8">
         <h6 class="m-0"><a href="{{ url }}" class="stretched-link">{{ label }}</a></h6>
