@@ -74,9 +74,9 @@
 {% set image_uri = attribute(content.field_agent_logo[0], '#markup') %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass(cardClasses) }} style="height: 8em">
-    <div class="row jus">
+    <div class="row">
       <div class="col-8">
-        <h6 class="m-0"><a href="{{ url }}" class="stretched-link">{{ label }}</a></h6>
+        <h6 class="m-0 float-start"><a href="{{ url }}" class="stretched-link">{{ label }}</a></h6>
         <div class="small"><i class="fas fa-phone-alt"></i> {{ node.field_agent_phone.value }}</div>
         <div class="text-nowrap overflow-hidden"><i class="fas fa-map-marker-alt"></i> {{ node.field_agent_operations_area.value }}</div>
       </div>
