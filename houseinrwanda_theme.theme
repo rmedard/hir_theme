@@ -79,17 +79,19 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
                   }
               }
 
-              $agentCategory = $node->field_advert_advertiser->entity->field_agent_category->value;
-              $agentName = $node->field_advert_advertiser->entity->getTitle();
-              $isFeatured = $agentCategory === 'featured';
-              $isVip = $agentCategory === 'vip';
-              if ($isFeatured or $isVip) {
-                  $badge = $isFeatured ? $blueBadgeHtml : $goldBadgeHtml;
-                  $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span style="white-space: nowrap">' . $agentName . '</span>' . $badge . '</span>');
-              } else {
-                  $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center">' . $agentName . '</span>');
+              if ($node->field_advert_is_agent->value) {
+                  $agentCategory = $node->field_advert_advertiser->entity->field_agent_category->value;
+                  $agentName = $node->field_advert_advertiser->entity->getTitle();
+                  $isFeatured = $agentCategory === 'featured';
+                  $isVip = $agentCategory === 'vip';
+                  if ($isFeatured or $isVip) {
+                      $badge = $isFeatured ? $blueBadgeHtml : $goldBadgeHtml;
+                      $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center"><span style="white-space: nowrap">' . $agentName . '</span>' . $badge . '</span>');
+                  } else {
+                      $variables['content']['agent_label'] = Markup::create('<span class="d-flex align-items-center justify-content-center">' . $agentName . '</span>');
+                  }
+                  $variables['content']['agent_id'] = $node->field_advert_advertiser->entity->id();
               }
-              $variables['content']['agent_id'] = $node->field_advert_advertiser->entity->id();
           }
 
           if ($node->bundle() === 'agent') {
