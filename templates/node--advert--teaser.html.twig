@@ -96,8 +96,8 @@
             <div class="advert-body-main">
               <span><i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}</span>
               <p class="mb-0 d-flex">
-                <span>Published on {{ date(publishedOn)|date('j F') }} | </span>
-                <span>Expires on {{ date(expiresOn)|date('j F') }}</span>
+                <span>Published on {{ date(publishedOn)|date('j F') }}</span>
+                <span> | Expires on {{ date(expiresOn)|date('j F') }}</span>
                 {% if node.field_advert_is_agent.value %}
                   <span class="d-flex">
                     <span class="px-1"> | Published by</span>
