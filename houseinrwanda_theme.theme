@@ -85,7 +85,7 @@ function houseinrwanda_theme_preprocess_node(&$variables): void
                       Drupal::logger('HiR Theme')->error('Advertiser is null. NID: ' . $node->id());
                   }
                   $agentCategory = $advertiser->field_agent_category->value;
-                  $agentName = $advertiser->entity->getTitle();
+                  $agentName = $advertiser->getTitle();
                   $isFeatured = $agentCategory === 'featured';
                   $isVip = $agentCategory === 'vip';
                   if ($isFeatured or $isVip) {
