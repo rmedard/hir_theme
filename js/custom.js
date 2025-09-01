@@ -51,12 +51,11 @@
       });
 
       const adminToolBar = $(context).find('nav#toolbar-bar');
-      let pageWrapperHeight = 170;
       if (adminToolBar.length) {
-          pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
+          const pageWrapper = $(context).find('div#page-wrapper');
+          const pageWrapperHeight = pageWrapper.outerHeight() + adminToolBar.outerHeight();
+          pageWrapper.css('margin-top', pageWrapperHeight + 'px');
       }
-
-      $(context).find('div#page-wrapper').css('margin-top', pageWrapperHeight + 'px');
       //
       // const mainNavbar = $(context).find('nav#navbar-main');
       // if (settings.toolbar !== undefined) {
