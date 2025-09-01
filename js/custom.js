@@ -50,11 +50,11 @@
         width: '100%'
       });
 
-      const adminToolBar = $(context).find('div#toolbar-administration');
+      const adminToolBar = $(context).find('nav#toolbar-bar');
       let pageWrapperHeight = 170;
-      // if (adminToolBar.length) {
-      //     pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
-      // }
+      if (adminToolBar.length) {
+          pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
+      }
 
       $(context).find('div#page-wrapper').css('margin-top', pageWrapperHeight + 'px');
       //
