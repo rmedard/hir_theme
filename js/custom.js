@@ -52,9 +52,9 @@
 
       const adminToolBar = $(context).find('div#toolbar-administration');
       let pageWrapperHeight = 170;
-      if (adminToolBar.length) {
-          pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
-      }
+      // if (adminToolBar.length) {
+      //     pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
+      // }
 
       $(context).find('div#page-wrapper').css('margin-top', pageWrapperHeight + 'px');
       //
