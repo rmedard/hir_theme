@@ -27,24 +27,24 @@
       const isAndroidPhone = userAgent.includes('android');
       const isIPhone = userAgent.includes('iphone');
       if (isMobile && isAndroidPhone) {
-          $(context).find('div#android-app-spot').once(main).removeAttr('hidden');
+          $(context).find('div#android-app-spot').removeAttr('hidden');
       }
       // IPhone user agent does not include 'mobile'
       if (isIPhone) {
-        $(context).find('div#ios-app-spot').once(main).removeAttr('hidden');
+        $(context).find('div#ios-app-spot').removeAttr('hidden');
       }
 
-      $(context).find('input.form-tel').once(main).each(function () {
+      $(context).find('input.form-tel').each(function () {
         $(this).intlTelInput({initialCountry: 'rw', nationalMode: false});
       });
 
-      $(context).find('select#edit-field-pr-property-type-value').once(main).select2({
+      $(context).find('select#edit-field-pr-property-type-value').select2({
         theme: 'bootstrap-5',
         placeholder: 'Select property type',
         width: '100%'
       });
 
-      $(context).find('select#edit-field-pr-request-type-value').once(main).select2({
+      $(context).find('select#edit-field-pr-request-type-value').select2({
         theme: 'bootstrap-5',
         minimumResultsForSearch: Infinity,
         width: '100%'
