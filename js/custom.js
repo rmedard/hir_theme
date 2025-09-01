@@ -50,11 +50,19 @@
         width: '100%'
       });
 
-      const mainNavbar = $(context).find('nav#navbar-main');
-      if (settings.toolbar !== undefined) {
-        mainNavbar.css('top', '79px');
+      const adminToolBar = $(context).find('div#toolbar-administration');
+      let pageWrapperHeight = 170;
+      if (adminToolBar !== undefined) {
+          pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
       }
-      $(context).find('div.grand-wrapper').css('margin-top', mainNavbar.height());
+
+      $(context).find('div#page-wrapper').css('margin-top', pageWrapperHeight + 'px');
+      //
+      // const mainNavbar = $(context).find('nav#navbar-main');
+      // if (settings.toolbar !== undefined) {
+      //   mainNavbar.css('top', '79px');
+      // }
+      // $(context).find('div.grand-wrapper').css('margin-top', mainNavbar.height());
 
       $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
       // $(context).find('input#edit-subscription-active').removeClass('form-control');
