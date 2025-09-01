@@ -118,6 +118,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
 {
   if (isset($variables['menu_name']) and $variables['menu_name'] === 'adverts-secondary-menu') {
     $featured = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_posting_plan', 'standard', '<>')
@@ -125,6 +126,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
     $featured_count = $featured->execute();
 
     $house = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_property_type', ['house', 'building'], 'IN')
@@ -132,6 +134,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
     $house_count = $house->execute();
 
     $apart = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_property_type', 'apartment')
@@ -139,6 +142,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
     $apart_count = $apart->execute();
 
     $commerce = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_property_type', ['commerce', 'warehouse'], 'IN')
@@ -146,6 +150,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
     $commerce_count = $commerce->execute();
 
     $room = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_property_type', ['room', 'shared_room'], 'IN')
@@ -153,6 +158,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
     $room_count = $room->execute();
 
     $office = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_property_type', 'office')
@@ -160,6 +166,7 @@ function houseinrwanda_theme_preprocess_menu(&$variables): void
     $office_count = $office->execute();
 
     $land = Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
       ->condition('type', 'advert')
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('field_advert_property_type', 'land')
