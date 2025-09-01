@@ -52,7 +52,7 @@
 
       const adminToolBar = $(context).find('div#toolbar-administration');
       let pageWrapperHeight = 170;
-      if (adminToolBar !== undefined) {
+      if (adminToolBar.length) {
           pageWrapperHeight = pageWrapperHeight + adminToolBar.outerHeight();
       }
 
