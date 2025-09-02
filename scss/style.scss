@@ -108,6 +108,10 @@ article.node--type-agent.node--view-mode-teaser {
   }
 }
 
+.shs-widget-container + .shs-widget-container {
+  margin-left: 10px;
+}
+
 div.agent-contact-details {
   background: linear-gradient(90deg, $primary-shade, $accent-shade);
 }

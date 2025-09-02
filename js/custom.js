@@ -127,19 +127,4 @@
         }
     };
 
-    Drupal.behaviors.shsSpacing = {
-        attach: function (context, settings) {
-            const fieldContainers = context.querySelectorAll('div.shs-field-container');
-            fieldContainers.forEach(function(fieldContainer) {
-                const widgetContainers = fieldContainer.querySelectorAll('div.shs-widget-container');
-                widgetContainers.forEach(function(container, index) {
-                    if (index > 0) {
-                        container.style.marginRight = '10px';
-                    }
-                });
-            });
-
-        }
-    };
-
 })(Drupal);
