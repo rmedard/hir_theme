@@ -76,10 +76,9 @@
             // Admin toolbar handling
             const adminToolBar = context.querySelector('nav#toolbar-bar');
             if (adminToolBar) {
-                const adminToolBarHeight = adminToolBar.offsetHeight;
-                const pageWrapper = context.querySelector('div#page-wrapper');
-                if (pageWrapper) {
-                    pageWrapper.style.marginTop = adminToolBarHeight + 'px';
+                const mainNavbar = context.querySelector('#navbar-main');
+                if (mainNavbar) {
+                    mainNavbar.classList.remove('fixed-top');
                 }
             }
 
