@@ -80,6 +80,11 @@
                 if (mainNavbar) {
                     mainNavbar.classList.remove('fixed-top');
                 }
+            } else {
+                const pageWrapper = context.querySelector('#page-wrapper');
+                if (pageWrapper) {
+                    pageWrapper.style.marginTop = '170px';
+                }
             }
 
             // Hide SHS input field
