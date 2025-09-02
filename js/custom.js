@@ -52,7 +52,10 @@
 
       const adminToolBar = $(context).find('nav#toolbar-bar');
       if (adminToolBar.length) {
-          const adminToolBarHeight = adminToolBar.outerHeight();
+          $(context).find('nav#navbar-main');
+
+
+          const adminToolBarHeight = adminToolBar.outerHeight() + 170;
           $(context).find('div#page-wrapper').css('margin-top', adminToolBarHeight + 'px');
       }
       //
