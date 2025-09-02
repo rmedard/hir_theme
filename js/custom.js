@@ -1,93 +1,126 @@
 /**
  * @file
- * Global utilities.
- *
+ * Global utilities - Pure JavaScript Version
  */
 
-(function ($, Drupal) {
+(function (Drupal) {
+    'use strict';
 
-  'use strict';
+    Drupal.behaviors.houseinrwanda_theme = {
+        attach: function (context, settings) {
 
-  Drupal.webform = Drupal.webform || {};
-  Drupal.webform.intlTelInput = Drupal.webform.intlTelInput || {};
-  Drupal.webform.intlTelInput.options = Drupal.webform.intlTelInput.options || {};
-  Drupal.webform.select2 = Drupal.webform.select2 || {};
-  Drupal.flexslider = Drupal.flexslider || {};
+            const main = 'mainBehavior';
 
-  Drupal.behaviors.houseinrwanda_theme = {
-    attach: function (context, settings) {
+            // Add 'rounded' class to all images
+            const images = context.querySelectorAll('img');
+            images.forEach(function(img) {
+                img.classList.add('rounded');
+            });
 
-      const main = 'mainBehavior';
+            // Mobile detection
+            const userAgent = navigator.userAgent.toLowerCase();
+            console.log(userAgent);
+            const isMobile = userAgent.includes('mobile');
+            const isAndroidPhone = userAgent.includes('android');
+            const isIPhone = userAgent.includes('iphone');
 
-      $(context).find('img').addClass('rounded');
+            if (isMobile && isAndroidPhone) {
+                const androidSpot = context.querySelector('div#android-app-spot');
+                if (androidSpot) {
+                    androidSpot.removeAttribute('hidden');
+                }
+            }
 
-      const userAgent = navigator.userAgent.toLowerCase();
-      console.log(userAgent);
-      const isMobile = userAgent.includes('mobile');
-      const isAndroidPhone = userAgent.includes('android');
-      const isIPhone = userAgent.includes('iphone');
-      if (isMobile && isAndroidPhone) {
-          $(context).find('div#android-app-spot').removeAttr('hidden');
-      }
-      // IPhone user agent does not include 'mobile'
-      if (isIPhone) {
-        $(context).find('div#ios-app-spot').removeAttr('hidden');
-      }
+            // iPhone user agent does not include 'mobile'
+            if (isIPhone) {
+                const iosSpot = context.querySelector('div#ios-app-spot');
+                if (iosSpot) {
+                    iosSpot.removeAttribute('hidden');
+                }
+            }
 
-      $(context).find('input.form-tel').each(function () {
-        $(this).intlTelInput({initialCountry: 'rw', nationalMode: false});
-      });
+            // Initialize intlTelInput (if library is loaded)
+            if (window.intlTelInput) {
+                const telInputs = context.querySelectorAll('input.form-tel');
+                telInputs.forEach(function(input) {
+                    window.intlTelInput(input, {
+                        initialCountry: 'rw',
+                        nationalMode: false
+                    });
+                });
+            }
 
-      $(context).find('select#edit-field-pr-property-type-value').select2({
-        theme: 'bootstrap-5',
-        placeholder: 'Select property type',
-        width: '100%'
-      });
+            // Initialize Select2 (if library is loaded)
+            if (window.jQuery && window.jQuery.fn.select2) {
+                // Property type select
+                const propertyTypeSelect = context.querySelector('select#edit-field-pr-property-type-value');
+                if (propertyTypeSelect && !propertyTypeSelect.classList.contains('select2-hidden-accessible')) {
+                    window.jQuery(propertyTypeSelect).select2({
+                        theme: 'bootstrap-5',
+                        placeholder: 'Select property type',
+                        width: '100%'
+                    });
+                }
 
-      $(context).find('select#edit-field-pr-request-type-value').select2({
-        theme: 'bootstrap-5',
-        minimumResultsForSearch: Infinity,
-        width: '100%'
-      });
+                // Request type select
+                const requestTypeSelect = context.querySelector('select#edit-field-pr-request-type-value');
+                if (requestTypeSelect && !requestTypeSelect.classList.contains('select2-hidden-accessible')) {
+                    window.jQuery(requestTypeSelect).select2({
+                        theme: 'bootstrap-5',
+                        minimumResultsForSearch: Infinity,
+                        width: '100%'
+                    });
+                }
+            }
 
-      const adminToolBar = $(context).find('nav#toolbar-bar');
-      if (adminToolBar.length) {
-          $(context).find('nav#navbar-main');
+            // Admin toolbar handling
+            const adminToolBar = context.querySelector('nav#toolbar-bar');
+            if (adminToolBar) {
+                const adminToolBarHeight = adminToolBar.offsetHeight;
+                const pageWrapper = context.querySelector('div#page-wrapper');
+                if (pageWrapper) {
+                    pageWrapper.style.marginTop = adminToolBarHeight + 'px';
+                }
+            }
 
+            // Hide SHS input field
+            const advertLocalityInput = context.querySelector('input#edit-field-advert-locality');
+            if (advertLocalityInput) {
+                advertLocalityInput.classList.remove('form-control');
+            }
 
-          const adminToolBarHeight = adminToolBar.outerHeight() + 170;
-          $(context).find('div#page-wrapper').css('margin-top', adminToolBarHeight + 'px');
-      }
-      //
-      // const mainNavbar = $(context).find('nav#navbar-main');
-      // if (settings.toolbar !== undefined) {
-      //   mainNavbar.css('top', '79px');
-      // }
-      // $(context).find('div.grand-wrapper').css('margin-top', mainNavbar.height());
+            // Style social sharing buttons
+            const socialButtons = context.querySelectorAll('span.a2a_svg');
+            const buttonStyles = {
+                'border-radius': '5px',
+                'height': '32px',
+                'line-height': '32px',
+                'opacity': '1',
+                'width': '32px'
+            };
 
-      $(context).find('input#edit-field-advert-locality').removeClass('form-control'); //To hide shs input field
-      // $(context).find('input#edit-subscription-active').removeClass('form-control');
+            socialButtons.forEach(function(button) {
+                Object.keys(buttonStyles).forEach(function(property) {
+                    button.style[property] = buttonStyles[property];
+                });
+            });
 
-      const values = {
-        'border-radius': '5px',
-        'height': '32px',
-        'line-height': '32px',
-        'opacity': '1',
-        'width': '32px'
-      };
-      $(context).find('span.a2a_svg').css(values);
+            // Initialize FlexSlider (if library is loaded and settings available)
+            if (window.jQuery && window.jQuery.fn.flexslider && settings.flexslider_thumbnail_width) {
+                const carousel = context.querySelector('div#carousel');
+                if (carousel && !carousel.classList.contains('flexslider-processed')) {
+                    window.jQuery(carousel).flexslider({
+                        animation: "slide",
+                        controlNav: false,
+                        animationLoop: false,
+                        slideshow: false,
+                        itemWidth: settings.flexslider_thumbnail_width,
+                        itemMargin: 5
+                    });
+                    carousel.classList.add('flexslider-processed');
+                }
+            }
+        }
+    };
 
-
-      const images = $(context).find('div#carousel');
-      images.flexslider({
-        animation: "slide",
-        controlNav: false,
-        animationLoop: false,
-        slideshow: false,
-        itemWidth: settings.flexslider_thumbnail_width,
-        itemMargin: 5
-      });
-
-    }
-  };
-})(jQuery, Drupal);
+})(Drupal);
