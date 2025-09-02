@@ -19,7 +19,7 @@
 
       const main = 'mainBehavior';
 
-      $(content).find('img').addClass('rounded');
+      $(context).find('img').addClass('rounded');
 
       const userAgent = navigator.userAgent.toLowerCase();
       console.log(userAgent);
