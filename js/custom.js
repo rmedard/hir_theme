@@ -53,8 +53,8 @@
       const adminToolBar = $(context).find('nav#toolbar-bar');
       if (adminToolBar.length) {
           const pageWrapper = $(context).find('div#page-wrapper');
-          const pageWrapperHeight = pageWrapper.outerHeight() + adminToolBar.outerHeight();
-          pageWrapper.css('margin-top', pageWrapperHeight + 'px');
+          const adminToolBarHeight = adminToolBar.outerHeight();
+          pageWrapper.css('margin-top', adminToolBarHeight + 'px');
       }
       //
       // const mainNavbar = $(context).find('nav#navbar-main');
