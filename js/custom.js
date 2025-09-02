@@ -93,16 +93,6 @@
                 advertLocalityInput.classList.remove('form-control');
             }
 
-            const fieldContainer = document.querySelector('div.shs-field-container');
-            if (fieldContainer) {
-                const widgetContainers = fieldContainer.querySelectorAll('div.shs-widget-container');
-                widgetContainers.forEach(function(container, index) {
-                    if (index < widgetContainers.length - 1) {
-                        container.style.marginRight = '10px';
-                    }
-                });
-            }
-
             // Style social sharing buttons
             const socialButtons = context.querySelectorAll('span.a2a_svg');
             const buttonStyles = {
@@ -134,6 +124,21 @@
                     carousel.classList.add('flexslider-processed');
                 }
             }
+        }
+    };
+
+    Drupal.behaviors.shsSpacing = {
+        attach: function (context, settings) {
+            const fieldContainers = context.querySelectorAll('div.shs-field-container');
+            fieldContainers.forEach(function(fieldContainer) {
+                const widgetContainers = fieldContainer.querySelectorAll('div.shs-widget-container');
+                widgetContainers.forEach(function(container, index) {
+                    if (index > 0) {
+                        container.style.marginRight = '10px';
+                    }
+                });
+            });
+
         }
     };
 
