@@ -73,7 +73,7 @@
 ] %}
 {% set short_title = node.title.value|length > 50 ? node.title.value|slice(0, 50) ~ '...' : node.title.value %}
 {% set image_uri = attribute(content.field_advert_picture.0, '#markup') %}
-{% set publishedOn = attribute(content.published_at.0, '#markup')|replace({'-' : ''}) %}
+{% set publishedAtTimestamp = content.published_at['#object'].published_at.value %}
 {% set expiresOn = attribute(content.field_advert_expirydate.0, '#markup') %}
 {% set postingPlan = attribute(content.field_advert_posting_plan.0, '#markup') %}
 {% set publisher = attribute(content.field_advert_advertiser.0, '#options').entity %}
@@ -98,7 +98,7 @@
                 <i class="fa fa-map-marker-alt"></i> {{ node.field_advert_locality_province.value }}, {{ node.field_advert_locality_district.value }}{% if node.field_advert_locality_sector is not empty %}, {{ node.field_advert_locality_sector.value }}{% endif %}
               </span>
               <p class="mb-0 d-flex flex-wrap">
-                <span class="pe-1" style="white-space: nowrap">Published on {{ date(publishedOn)|date('j F') }}</span>
+                <span class="pe-1" style="white-space: nowrap">Published on {{ publishedAtTimestamp|date('j F') }}</span>
                 <span class="pe-1" style="white-space: nowrap">| Expires on {{ date(expiresOn)|date('j F') }}</span>
               </p>
               {% if node.field_advert_is_agent.value %}
